@@ -1,0 +1,20 @@
+{
+    "name": "php-usergroup-dresden/business-metrics-for-starters",
+    "description": "A VERY simple PHP, Prometheus & Grafana setup to get started with business metrics",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Holger Woltersdorf",
+            "email": "hw@hollo.me"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.3",
+        "openmetrics-php/exposition-text": "~0.3.0"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master"
+    }
+}
