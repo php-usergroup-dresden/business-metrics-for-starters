@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6bc2db18ab07c49a7916847792a6db6",
+    "content-hash": "b7453dd185f83c869932fa5bd7316eb5",
     "packages": [
         {
             "name": "openmetrics-php/exposition-text",
-            "version": "v0.3.0",
+            "version": "v0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/openmetrics-php/exposition-text.git",
-                "reference": "239a41bd2776516865f4698faaf6a6460d417f87"
+                "reference": "125dce0ce283cb78ef6f7bcf7fb8b2425c703c88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/openmetrics-php/exposition-text/zipball/239a41bd2776516865f4698faaf6a6460d417f87",
-                "reference": "239a41bd2776516865f4698faaf6a6460d417f87",
+                "url": "https://api.github.com/repos/openmetrics-php/exposition-text/zipball/125dce0ce283cb78ef6f7bcf7fb8b2425c703c88",
+                "reference": "125dce0ce283cb78ef6f7bcf7fb8b2425c703c88",
                 "shasum": ""
             },
             "require": {
@@ -25,6 +25,7 @@
                 "psr/http-message": "^1.0"
             },
             "require-dev": {
+                "ext-xdebug": "*",
                 "hollodotme/phpunit-testdox-markdown": "~1.0.0",
                 "tm/tooly-composer-script": "~1.0"
             },
@@ -32,11 +33,11 @@
             "extra": {
                 "tools": {
                     "phpunit": {
-                        "url": "https://phar.phpunit.de/phpunit-7.4.3.phar",
+                        "url": "https://phar.phpunit.de/phpunit-7.phar",
                         "only-dev": true
                     },
                     "phpstan": {
-                        "url": "https://github.com/phpstan/phpstan/releases/download/0.10.5/phpstan.phar",
+                        "url": "https://github.com/phpstan/phpstan/releases/download/0.11.2/phpstan.phar",
                         "only-dev": true
                     }
                 }
@@ -57,7 +58,7 @@
                 }
             ],
             "description": "Implementation of the text exposition format of OpenMetrics",
-            "time": "2018-11-22T11:28:20+00:00"
+            "time": "2019-02-19T21:13:07+00:00"
         },
         {
             "name": "psr/http-message",
@@ -117,12 +118,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "54ee79a17e8cdc4ff8a1570198d5bc669a5803b8"
+                "reference": "7f9676e3d324ff0745cda4f4222b194993d37d57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/54ee79a17e8cdc4ff8a1570198d5bc669a5803b8",
-                "reference": "54ee79a17e8cdc4ff8a1570198d5bc669a5803b8",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/7f9676e3d324ff0745cda4f4222b194993d37d57",
+                "reference": "7f9676e3d324ff0745cda4f4222b194993d37d57",
                 "shasum": ""
             },
             "conflict": {
@@ -217,7 +218,7 @@
                 "shopware/shopware": "<5.3.7",
                 "silverstripe/cms": ">=3,<=3.0.11|>=3.1,<3.1.11",
                 "silverstripe/forum": "<=0.6.1|>=0.7,<=0.7.3",
-                "silverstripe/framework": ">=3,<3.3",
+                "silverstripe/framework": ">=3,<3.3|>=3.6,<3.6.7|>=3.7,<3.7.3|>=4,<4.0.7|>=4.1,<4.1.5|>=4.2,<4.2.4|>=4.3,<4.3.1",
                 "silverstripe/userforms": "<3",
                 "simple-updates/phpwhois": "<=1",
                 "simplesamlphp/saml2": "<1.10.6|>=2,<2.3.8|>=3,<3.1.4",
@@ -313,7 +314,7 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2019-02-14T08:06:11+00:00"
+            "time": "2019-02-19T07:02:29+00:00"
         }
     ],
     "aliases": [],

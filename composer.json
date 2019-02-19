@@ -12,7 +12,7 @@
     "minimum-stability": "stable",
     "require": {
         "php": ">=7.3",
-        "openmetrics-php/exposition-text": "~0.3.0"
+        "openmetrics-php/exposition-text": "~0.3.1"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master"
