@@ -29,3 +29,12 @@ scrape_configs:
     static_configs:
       - targets:
           - nginx:80
+
+  # cAdvisor metrics
+
+  - job_name: cadvisor-metrics
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets:
+          - cadvisor:8080

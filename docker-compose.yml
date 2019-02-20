@@ -26,6 +26,7 @@ services:
     depends_on:
       - php
       - prometheus
+      - cadvisor
 
   prometheus:
     image: prom/prometheus:latest
@@ -52,6 +53,19 @@ services:
       - bmfs_network
     depends_on:
       - prometheus
+
+  cadvisor:
+    image: google/cadvisor:latest
+    container_name: bmfs_cadvisor
+    restart: 'on-failure'
+    networks:
+      - bmfs_network
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
 
 networks:
   bmfs_network:
