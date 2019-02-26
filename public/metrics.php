@@ -3,52 +3,41 @@
 namespace PHPUGDD\BusinessMetrics\ForStarters;
 
 use OpenMetricsPhp\Exposition\Text\Collections\CounterCollection;
-use OpenMetricsPhp\Exposition\Text\Collections\LabelCollection;
+use OpenMetricsPhp\Exposition\Text\Collections\GaugeCollection;
 use OpenMetricsPhp\Exposition\Text\HttpResponse;
 use OpenMetricsPhp\Exposition\Text\Metrics\Counter;
+use OpenMetricsPhp\Exposition\Text\Metrics\Gauge;
 use OpenMetricsPhp\Exposition\Text\Types\Label;
 use OpenMetricsPhp\Exposition\Text\Types\MetricName;
 use Throwable;
+use function random_int;
 
 require_once dirname( __DIR__ ) . '/vendor/autoload.php';
 
 try
 {
 	$counters = CounterCollection::fromCounters(
-		MetricName::fromString( 'your_metric_name' ),
-		Counter::fromValue( 1 ),
-		Counter::fromValueAndTimestamp( 2, time() ),
-		Counter::fromValue( 3 )->withLabels(
-			Label::fromNameAndValue( 'label1', 'label_value' )
+		MetricName::fromString( 'online_since' ),
+		Counter::fromValue( time() - 1551205367 )
+		       ->withLabels(
+			       Label::fromNameAndValue( 'appName', 'business_metrics_for_starters' )
+		       )
+	)->withHelp( 'Since when is this application online.' );
+
+	$gauges = GaugeCollection::fromGauges(
+		MetricName::fromString( 'stocks' ),
+		Gauge::fromValue( (float)random_int( 30, 50 ) )->withLabels(
+			Label::fromNameAndValue( 'tenant', 'attandees' )
 		),
-		Counter::fromValueAndTimestamp( 4, time() )->withLabels(
-			Label::fromNameAndValue( 'label2', 'label_value' )
-		)
-	)->withHelp( 'A helpful description of your measurement.' );
-
-	# Add counters after creating the collection
-	$counters->add(
-		Counter::fromValue( 5 ),
-		Counter::fromValueAndTimestamp( 6, time() ),
-		Counter::fromValue( 7 )->withLabels(
-		# Create labels from label string
-			Label::fromLabelString( 'label3="label_value"' )
+		Gauge::fromValue( (float)random_int( 35, 40 ) )->withLabels(
+			Label::fromNameAndValue( 'tenant', 'members' )
+		),
+		Gauge::fromValue( (float)random_int( 10, 50 ) )->withLabels(
+			Label::fromNameAndValue( 'tenant', 'fridge' )
 		)
 	);
 
-	# Prepare labels upfront
-	$labels = LabelCollection::fromAssocArray(
-		[
-			'label4' => 'label_value',
-			'label5' => 'label_value',
-		]
-	);
-
-	$counters->add(
-		Counter::fromValueAndTimestamp( 8, time() )->withLabelCollection( $labels )
-	);
-
-	HttpResponse::fromMetricCollections( $counters )
+	HttpResponse::fromMetricCollections( $counters, $gauges )
 	            ->withHeader( 'Content-Type', 'text/plain; charset=utf-8' )
 	            ->respond();
 }
