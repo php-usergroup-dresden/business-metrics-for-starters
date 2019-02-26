@@ -26,7 +26,6 @@ services:
     depends_on:
       - php
       - prometheus
-      - cadvisor
 
   prometheus:
     image: prom/prometheus:latest
