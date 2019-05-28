@@ -18,11 +18,10 @@ services:
       - ./:/repo
       - ./.docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
     networks:
+      - default
       - bmfs_network
-    ports:
-      - 8080:80 # PHP
-      - 3000:83 # Grafana
-      - 9090:89 # Prometheus
+    labels:
+      - "traefik.frontend.rule=HostRegexp:{subdomain:[a-z]+}.business-metrics.de"
     depends_on:
       - php
       - prometheus
@@ -67,4 +66,7 @@ services:
       - /dev/disk/:/dev/disk:ro
 
 networks:
+  default:
+    external:
+      name: "gateway"
   bmfs_network:
