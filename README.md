@@ -2,6 +2,10 @@
 
 A VERY simple PHP, Prometheus &amp; Grafana setup to get started with business metrics
 
+## Pre-Requisites
+
+You will need to install the composer packages, which are used by this example project.
+
 ## Docker compose services
 
 Assuming you have installed `docker` and `docker-compose` on your machine, go to the root directory of this project and run
